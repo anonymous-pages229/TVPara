@@ -3,196 +3,374 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DramaPara - Project Page</title>
+  <title>DramaPara — A TV Drama Dataset for Paralinguistic Understanding</title>
   <meta name="description" content="DramaPara: A TV Drama Dataset for Enhancing Paralinguistic Understanding in Large Audio-Language Models" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  <header class="hero" id="top">
-    <div class="container">
-      <p class="badge">Interspeech Submission</p>
-      <h1>DRAMAPARA</h1>
-      <h2>A TV Drama Dataset for Enhancing Paralinguistic Understanding in Large Audio-Language Models</h2>
+  <!-- ===================== nav ===================== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="9" width="3" height="6" rx="1.5" />
+          <rect x="10.5" y="4" width="3" height="16" rx="1.5" />
+          <rect x="18" y="10" width="3" height="4" rx="1.5" />
+        </svg>
+        DRAMAPARA
+      </a>
+      <div class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#highlights">Figures</a>
+        <a href="#audio-samples">Samples</a>
+        <a href="#data-sources">Sources</a>
+      </div>
+    </div>
+  </nav>
 
-      <p class="authors">Anonymous Authors (Under Review)</p>
+  <!-- ===================== hero ===================== -->
+  <header class="hero" id="top">
+    <div class="container hero-wrap">
+      <span class="chip">SLT 2026 · Submission</span>
+
+      <h1>DramaPara</h1>
+      <p class="subtitle">
+        A TV Drama Dataset for Enhancing Paralinguistic Understanding
+        in Large Audio-Language Models
+      </p>
+
+      <div class="wave" id="wave" aria-hidden="true"></div>
+
+      <p class="authors">Anonymous Authors · Under Review</p>
 
       <div class="links">
-        <a href="#" aria-label="Paper PDF link">Paper</a>
-        <a href="#" aria-label="arXiv link">arXiv</a>
-        <a href="#" aria-label="Code link">Code</a>
-        <a href="#" aria-label="Dataset link">Dataset</a>
+        <a class="btn btn-primary" href="#" aria-label="Paper PDF link">Paper</a>
+        <a class="btn" href="#" aria-label="arXiv link">arXiv</a>
+        <a class="btn" href="#" aria-label="Code link">Code</a>
+        <a class="btn" href="#" aria-label="Dataset link">Dataset</a>
+      </div>
+
+      <div class="specs">
+        <div class="spec">
+          <div class="spec-val">492<span class="accent">h</span></div>
+          <div class="spec-label">Single-utterance</div>
+        </div>
+        <div class="spec">
+          <div class="spec-val">213<span class="accent">h</span></div>
+          <div class="spec-label">Multi-utterance</div>
+        </div>
+        <div class="spec">
+          <div class="spec-val"><span class="accent">+</span>30.93%</div>
+          <div class="spec-label">Avg. relative gain</div>
+        </div>
+        <div class="spec">
+          <div class="spec-val">19</div>
+          <div class="spec-label">Source TV series</div>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- ===================== abstract ===================== -->
     <section class="section" id="abstract">
-        <div class="container narrow">
-        <h3>Abstract</h3>
-        <p>
+      <div class="container narrow reveal">
+        <div class="section-head">
+          <p class="eyebrow">01 — Overview</p>
+          <h2>Abstract</h2>
+        </div>
+        <p class="abstract-body">
           Large audio-language models (LAMs) struggle to parse paralinguistics (e.g., emotion, intonation)
           in acoustically complex environments. Existing datasets rely heavily on clean speech or studio
           recordings, causing a domain gap to real-world usage. We introduce <strong>DramaPara</strong>, a TV
           drama dataset with expressive emotions and naturalistic background effects for robust
           paralinguistic understanding. DramaPara includes two tasks: single-utterance isolated description
           (~492h) and multi-utterance sequential description (~213h). With mixed training (SFT + RL),
-          open-source LAMs achieve a <strong>30.93% average relative improvement</strong> in complex scenarios.
+          open-source LAMs achieve a <span class="mark">30.93% average relative improvement</span> in complex scenarios.
         </p>
       </div>
     </section>
 
+    <!-- ===================== figures ===================== -->
     <section class="section alt" id="highlights">
-      <div class="container">
-        <h3>Key Figures</h3>
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">02 — Method</p>
+          <h2>Key Figures</h2>
+        </div>
 
         <article class="figure-card">
-          <h4>Task Paradigms</h4>
+          <div class="figure-cap"><span class="idx">Fig. 1</span> Task paradigms</div>
           <div class="figure-wrap">
             <img src="figs/task_fig.png" class="pdf-figure figure-half" alt="Task paradigms overview" />
           </div>
         </article>
 
         <article class="figure-card">
-          <h4>Annotation Pipeline</h4>
+          <div class="figure-cap"><span class="idx">Fig. 2</span> Annotation pipeline</div>
           <div class="figure-wrap">
-            <img src="figs/data_annotation.png" class="pdf-figure figure-full" alt="Data annotation pipeline" />
+            <img src="figs/data_annotation.png" class="pdf-figure" alt="Data annotation pipeline" />
           </div>
         </article>
       </div>
     </section>
 
+    <!-- ===================== audio samples ===================== -->
     <section class="section" id="audio-samples">
-      <div class="container">
-        <h3>Audio Samples</h3>
-
-        <h4>Part 1: Dataset Comparison (Previous Datasets vs. DramaPara)</h4>
-        <p class="section-intro">Comparison between existing datasets and our dataset samples.</p>
-        <p class="section-intro">
-          From these examples, it is easy to hear a clear contrast: prior datasets are typically recorded in very clean acoustic conditions,
-          and the emotions in speech often carry noticeable acted characteristics. In comparison, DramaPara contains much more realistic
-          background sounds, while the vocal expressions are more complex, intense, and natural—better reflecting real-world conversational
-          scenarios.
-        </p>
-        <div class="audio-grid fixed-three">
-          <article class="audio-card">
-            <h4>Ears</h4>
-            <audio controls preload="none" src="samples/ears_anger.wav"></audio>
-          </article>
-
-          <article class="audio-card">
-            <h4>Expresso</h4>
-            <audio controls preload="none" src="samples/expresso_happy.wav"></audio>
-          </article>
-
-          <article class="audio-card">
-            <h4>VoxCeleb</h4>
-            <audio controls preload="none" src="samples/voxceleb.wav"></audio>
-          </article>
-
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">03 — Listen</p>
+          <h2>Audio Samples</h2>
         </div>
 
-        <div class="audio-grid fixed-three">
+        <!-- Part 1 -->
+        <div class="audio-block">
+          <div class="block-head">
+            <span class="part">Part 01</span>
+            <h3>Dataset Comparison — Prior datasets vs. DramaPara</h3>
+          </div>
+          <p class="lead">
+            Prior datasets are typically recorded in very clean acoustic conditions, and their emotions often
+            carry noticeable acted characteristics. DramaPara contains far more realistic background sounds,
+            while vocal expressions are more complex, intense, and natural — better reflecting real-world
+            conversational scenarios.
+          </p>
 
-          <article class="audio-card">
-            <h4>DramaPara - Sample 0398</h4>
-            <audio controls preload="none" src="samples/0398.wav"></audio>
-          </article>
+          <div class="audio-grid cols-three">
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">Ears</span><span class="tag">Baseline</span></div>
+              <audio controls preload="none" src="samples/ears_anger.wav"></audio>
+            </article>
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">Expresso</span><span class="tag">Baseline</span></div>
+              <audio controls preload="none" src="samples/expresso_happy.wav"></audio>
+            </article>
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">VoxCeleb</span><span class="tag">Baseline</span></div>
+              <audio controls preload="none" src="samples/voxceleb.wav"></audio>
+            </article>
+          </div>
 
-          <article class="audio-card">
-            <h4>DramaPara - Sample 0479</h4>
-            <audio controls preload="none" src="samples/0479.wav"></audio>
-          </article>
-
-          <article class="audio-card">
-            <h4>DramaPara - Sample 1081</h4>
-            <audio controls preload="none" src="samples/1081.wav"></audio>
-          </article>
+          <div class="audio-grid cols-three">
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">DramaPara · 0398</span><span class="tag ours">Ours</span></div>
+              <audio controls preload="none" src="samples/0398.wav"></audio>
+            </article>
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">DramaPara · 0479</span><span class="tag ours">Ours</span></div>
+              <audio controls preload="none" src="samples/0479.wav"></audio>
+            </article>
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">DramaPara · 1081</span><span class="tag ours">Ours</span></div>
+              <audio controls preload="none" src="samples/1081.wav"></audio>
+            </article>
+          </div>
         </div>
 
-        <h4>Part 2: Single-Utterance vs. Multi-Utterance Comparison</h4>
-        <p class="section-intro">Comparison of a single-utterance sample and its multi-utterance contextual counterpart.</p>
-        <div class="audio-grid">
-          <article class="audio-card">
-            <h4>Single-Utterance (0120)</h4>
-            <audio controls preload="none" src="samples/part2_single_0120.wav"></audio>
-            <p><strong>Transcription:</strong> "No kidding? Am I asking for ransom?"</p>
-            <p><strong>Description:</strong> The speaker maintains a moderate volume and pace, allowing the words to resonate, while the tone ascends towards the end of each sentence, adding a layer of irony to the delivery.</p>
-          </article>
+        <!-- Part 2 -->
+        <div class="audio-block">
+          <div class="block-head">
+            <span class="part">Part 02</span>
+            <h3>Single-Utterance vs. Multi-Utterance</h3>
+          </div>
+          <p class="lead">The same opening line, heard two ways — first in isolation, then inside its full three-sentence exchange.</p>
+          <p class="block-note">Read alone, the line is simply ironic. Inside the conversation, the caption tracks how the delivery <strong>moves</strong>: <span class="hl hl-emo">emotion words</span> name what is felt, and <span class="hl hl-shift">shift words</span> mark where the tone turns from one sentence to the next.</p>
+          <div class="hl-legend">
+            <span class="hl-legend-item"><span class="hl-dot emo"></span>Emotion</span>
+            <span class="hl-legend-item"><span class="hl-dot shift"></span>Tonal shift</span>
+          </div>
 
-          <article class="audio-card">
-            <h4>Multi-Utterance (0120-0122)</h4>
-            <audio controls preload="none" src="samples/part2_multi_0120_0121_0122.wav"></audio>
-            <p><strong>Transcription:</strong></p>
-            <p>1) "No kidding? Am I asking for ransom?"<br>
-               2) "Well, you always said she was crazy. Now I feel your pain.Anyway, I just thought you should know, huh? Take care."<br>
-               3) "Okay, enough kidding around."</p>
-            <p><strong>Description:</strong> The speaker delivers with a moderate volume and pace, utilizing a rising tone for irony. This shifts to a high pitch and rapid tempo, maintaining a moderate volume while enhancing engagement. Finally, excitement peaks with a cheerful, high-pitched voice and a fast pace at a high volume, radiating enthusiasm. The overall delivery effectively blends irony, liveliness, and excitement.</p>
-          </article>
+          <div class="audio-grid">
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">Single · 0120</span><span class="tag">Isolated</span></div>
+              <audio controls preload="none" src="samples/part2_single_0120.wav"></audio>
+              <div class="kv">
+                <span class="kv-label">Transcription</span>
+                <p class="kv-text">"No kidding? Am I asking for ransom?"</p>
+              </div>
+              <div class="kv">
+                <span class="kv-label">Description</span>
+                <p class="kv-text">The speaker maintains a moderate volume and pace, allowing the words to resonate, while the tone ascends towards the end of each sentence, adding a layer of <span class="hl hl-emo">irony</span> to the delivery.</p>
+              </div>
+            </article>
+
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">Multi · 0120–0122</span><span class="tag ours">Sequential</span></div>
+              <audio controls preload="none" src="samples/part2_multi_0120_0121_0122.wav"></audio>
+              <div class="kv">
+                <span class="kv-label">Transcription</span>
+                <p class="kv-text">
+                  1) "No kidding? Am I asking for ransom?"<br />
+                  2) "Well, you always said she was crazy. Now I feel your pain. Anyway, I just thought you should know, huh? Take care."<br />
+                  3) "Okay, enough kidding around."
+                </p>
+              </div>
+              <div class="kv">
+                <span class="kv-label">Description</span>
+                <p class="kv-text">The speaker delivers with a moderate volume and pace, utilizing a rising tone for <span class="hl hl-emo">irony</span>. <span class="hl hl-shift">This shifts to</span> a high pitch and rapid tempo, maintaining a moderate volume while enhancing <span class="hl hl-emo">engagement</span>. <span class="hl hl-shift">Finally</span>, <span class="hl hl-emo">excitement</span> peaks with a <span class="hl hl-emo">cheerful</span>, high-pitched voice and a fast pace at a high volume, radiating <span class="hl hl-emo">enthusiasm</span>. The overall delivery effectively blends <span class="hl hl-emo">irony</span>, <span class="hl hl-emo">liveliness</span>, and <span class="hl hl-emo">excitement</span>.</p>
+              </div>
+            </article>
+          </div>
         </div>
 
-        <h4>Part 3: Before vs. After Fine-Tuning Comparison</h4>
-        <p class="section-intro">Comparison between base model outputs and fine-tuned model outputs on DramaPara samples.</p>
-        <div class="audio-grid">
-          <article class="audio-card">
-            <h4>Sample 0083</h4>
-            <audio controls preload="none" src="samples/0083.wav"></audio>
-            <p><strong>Transcription:</strong> Ellie, you can't call me! the cops are all over my ass Because they think I helped you escape.</p>
-            <p><strong>Ground Truth (Label):</strong> The speaker’s voice carries a high pitch, brimming with a palpable urgency. Their tone is rapid, and their demeanor appears tense, effectively communicating a deep sense of desperation. The volume is moderate.</p>
-            <p><strong>Before Fine-Tuning (Zero-shot):</strong> The speaker's voice is high-pitched and emotional, with a lot of stress on certain words. They speak quickly and with a lot of intensity.</p>
-            <p><strong>After Fine-Tuning:</strong> The speaker's voice, characterized by its high pitch and rapid tempo, conveys a sense of urgency and desperation, delivered at a moderate volume.</p>
-          </article>
+        <!-- Part 3 -->
+        <div class="audio-block">
+          <div class="block-head">
+            <span class="part">Part 03</span>
+            <h3>Before vs. After Fine-Tuning</h3>
+          </div>
+          <p class="lead">The same description task, written by the base model and by the fine-tuned model, each read against the ground truth.</p>
+          <p class="block-note">The base model falls back on <span class="hl hl-vague">vague adjectives</span> or a fixed <span class="hl hl-vague">Neutral / None / Medium</span> template. After fine-tuning, the model reaches for <span class="hl hl-emo">precise emotion words</span> and narrates how the tone <span class="hl hl-shift">shifts</span> across sentences — landing much closer to the ground truth.</p>
+          <div class="hl-legend">
+            <span class="hl-legend-item"><span class="hl-dot emo"></span>Precise emotion</span>
+            <span class="hl-legend-item"><span class="hl-dot shift"></span>Tonal shift</span>
+            <span class="hl-legend-item"><span class="hl-dot vague"></span>Generic / imprecise</span>
+          </div>
 
-          <article class="audio-card">
-            <h4>Sample 0120-0122 (Multi-Utterance)</h4>
-            <audio controls preload="none" src="samples/part2_multi_0120_0121_0122.wav"></audio>
-            <p><strong>Transcription:</strong></p>
-            <p>1) "No kidding? Am I asking for ransom?"<br>
-               2) "Well, you always said she was crazy. Now I feel your pain.Anyway, I just thought you should know, huh? Take care."<br>
-               3) "Okay, enough kidding around."</p>
-            <p><strong>Ground Truth (Label):</strong> The speaker delivers with a moderate volume and pace, utilizing a rising tone for irony. This shifts to a high pitch and rapid tempo, maintaining a moderate volume while enhancing engagement. Finally, excitement peaks with a cheerful, high-pitched voice and a fast pace at a high volume, radiating enthusiasm. The overall delivery effectively blends irony, liveliness, and excitement.</p>
-            <p><strong>Before Fine-Tuning (Pretrained):</strong> 1. Sentence: 'No kidding, am I asking for ransom? You always said she was crazy. Anyway, I just thought you should know, take care.' Emotion: Neutral; Stress Pattern: None; Intonation: Neutral; Speaking Speed: Medium. 2. Sentence: 'Okay, enough kidding around.' Emotion: Neutral; Stress Pattern: None; Intonation: Neutral; Speaking Speed: Medium. 3. Sentence: 'Anyway, I just thought you should know, take care.' Emotion: Neutral; Stress Pattern: None; Intonation: Neutral; Speaking Speed: Medium.</p>
-            <p><strong>After Fine-Tuning:</strong> Initially, a sarcastic and mocking tone is used, characterized by a high-pitched, rapid voice and moderate volume. This shifts to a calm, steady voice with low volume and gentle upward intonation, conveying empathy. Finally, a cheerful and relaxed tone is adopted, maintaining a moderate pace and volume, with rising intonation at the end of sentences.</p>
-          </article>
+          <div class="audio-grid">
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">Sample · 0083</span><span class="tag">Single</span></div>
+              <audio controls preload="none" src="samples/0083.wav"></audio>
+              <div class="kv">
+                <span class="kv-label">Transcription</span>
+                <p class="kv-text">"Ellie, you can't call me! The cops are all over my ass because they think I helped you escape."</p>
+              </div>
+              <div class="kv gt">
+                <span class="kv-label">Ground Truth</span>
+                <p class="kv-text">The speaker's voice carries a high pitch, brimming with a palpable <span class="hl hl-emo">urgency</span>. Their tone is rapid, and their demeanor appears <span class="hl hl-emo">tense</span>, effectively communicating a deep sense of <span class="hl hl-emo">desperation</span>. The volume is moderate.</p>
+              </div>
+              <div class="kv before">
+                <span class="kv-label">Before · Zero-shot</span>
+                <p class="kv-text">The speaker's voice is high-pitched and <span class="hl hl-vague">emotional</span>, with <span class="hl hl-vague">a lot of stress</span> on certain words. They speak quickly and with <span class="hl hl-vague">a lot of intensity</span>.</p>
+              </div>
+              <div class="kv after">
+                <span class="kv-label">After Fine-Tuning</span>
+                <p class="kv-text">The speaker's voice, characterized by its high pitch and rapid tempo, conveys a sense of <span class="hl hl-emo">urgency</span> and <span class="hl hl-emo">desperation</span>, delivered at a moderate volume.</p>
+              </div>
+            </article>
+
+            <article class="audio-card">
+              <div class="card-head"><span class="card-id">Sample · 0120–0122</span><span class="tag ours">Multi</span></div>
+              <audio controls preload="none" src="samples/part2_multi_0120_0121_0122.wav"></audio>
+              <div class="kv">
+                <span class="kv-label">Transcription</span>
+                <p class="kv-text">
+                  1) "No kidding? Am I asking for ransom?"<br />
+                  2) "Well, you always said she was crazy. Now I feel your pain. Anyway, I just thought you should know, huh? Take care."<br />
+                  3) "Okay, enough kidding around."
+                </p>
+              </div>
+              <div class="kv gt">
+                <span class="kv-label">Ground Truth</span>
+                <p class="kv-text">The speaker delivers with a moderate volume and pace, utilizing a rising tone for <span class="hl hl-emo">irony</span>. <span class="hl hl-shift">This shifts to</span> a high pitch and rapid tempo, maintaining a moderate volume while enhancing <span class="hl hl-emo">engagement</span>. <span class="hl hl-shift">Finally</span>, <span class="hl hl-emo">excitement</span> peaks with a <span class="hl hl-emo">cheerful</span>, high-pitched voice and a fast pace at a high volume, radiating <span class="hl hl-emo">enthusiasm</span>.</p>
+              </div>
+              <div class="kv before">
+                <span class="kv-label">Before · Pretrained</span>
+                <p class="kv-text">1. 'No kidding, am I asking for ransom? You always said she was crazy. Anyway, I just thought you should know, take care.' <span class="hl hl-vague">Emotion: Neutral</span>; <span class="hl hl-vague">Stress: None</span>; <span class="hl hl-vague">Intonation: Neutral</span>; Speed: Medium. 2. 'Okay, enough kidding around.' <span class="hl hl-vague">Emotion: Neutral</span>; <span class="hl hl-vague">Stress: None</span>; <span class="hl hl-vague">Intonation: Neutral</span>; Speed: Medium.</p>
+              </div>
+              <div class="kv after">
+                <span class="kv-label">After Fine-Tuning</span>
+                <p class="kv-text"><span class="hl hl-shift">Initially</span>, a <span class="hl hl-emo">sarcastic and mocking</span> tone is used, characterized by a high-pitched, rapid voice and moderate volume. <span class="hl hl-shift">This shifts to</span> a <span class="hl hl-emo">calm, steady</span> voice with low volume and gentle upward intonation, conveying <span class="hl hl-emo">empathy</span>. <span class="hl hl-shift">Finally</span>, a <span class="hl hl-emo">cheerful and relaxed</span> tone is adopted, maintaining a moderate pace and volume, with rising intonation at the end of sentences.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ===================== data sources ===================== -->
     <section class="section alt" id="data-sources">
-      <div class="container">
-        <h3>Data Sources (TV Series)</h3>
-        <p class="section-intro">Selection criterion: from popular American TV series, we prioritized shows with relatively richer scene diversity and more expressive character portrayals.</p>
-        <article class="figure-card">
-          <ul class="source-list">
-            <li>Poirot</li>
-            <li>Friends</li>
-            <li>The Big Bang Theory</li>
-            <li>2 Broke Girls</li>
-            <li>Desperate Housewives</li>
-            <li>How I Met Your Mother</li>
-            <li>Modern Family</li>
-            <li>Two and a Half Men</li>
-            <li>Good Luck Charlie</li>
-            <li>Hung</li>
-            <li>The IT Crowd</li>
-            <li>The Newsroom</li>
-            <li>The Simpsons</li>
-            <li>Billions</li>
-            <li>Boston Legal</li>
-            <li>CSI: Crime Scene Investigation</li>
-            <li>Grey's Anatomy</li>
-            <li>Indian Ocean with Simon Reeve</li>
-            <li>Through the Wormhole with Morgan Freeman</li>
-          </ul>
-        </article>
+      <div class="container reveal">
+        <div class="section-head">
+          <p class="eyebrow">04 — Provenance</p>
+          <h2>Data Sources</h2>
+        </div>
+        <p class="lead">
+          Selection criterion: from popular American TV series, we prioritized shows with relatively richer
+          scene diversity and more expressive character portrayals.
+        </p>
+        <div class="sources">
+          <span class="source"><span class="dot">▹</span>Poirot</span>
+          <span class="source"><span class="dot">▹</span>Friends</span>
+          <span class="source"><span class="dot">▹</span>The Big Bang Theory</span>
+          <span class="source"><span class="dot">▹</span>2 Broke Girls</span>
+          <span class="source"><span class="dot">▹</span>Desperate Housewives</span>
+          <span class="source"><span class="dot">▹</span>How I Met Your Mother</span>
+          <span class="source"><span class="dot">▹</span>Modern Family</span>
+          <span class="source"><span class="dot">▹</span>Two and a Half Men</span>
+          <span class="source"><span class="dot">▹</span>Good Luck Charlie</span>
+          <span class="source"><span class="dot">▹</span>Hung</span>
+          <span class="source"><span class="dot">▹</span>The IT Crowd</span>
+          <span class="source"><span class="dot">▹</span>The Newsroom</span>
+          <span class="source"><span class="dot">▹</span>The Simpsons</span>
+          <span class="source"><span class="dot">▹</span>Billions</span>
+          <span class="source"><span class="dot">▹</span>Boston Legal</span>
+          <span class="source"><span class="dot">▹</span>CSI: Crime Scene Investigation</span>
+          <span class="source"><span class="dot">▹</span>Grey's Anatomy</span>
+          <span class="source"><span class="dot">▹</span>Indian Ocean with Simon Reeve</span>
+          <span class="source"><span class="dot">▹</span>Through the Wormhole with Morgan Freeman</span>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- ===================== footer ===================== -->
   <footer class="footer">
     <div class="container">
-      <p>© DramaPara Project</p>
-      <a href="#top">Back to top</a>
+      <p>© DramaPara Project · SLT 2026</p>
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
+
+  <script>
+    // signature waveform — speech-envelope shaped bars
+    (function () {
+      var wave = document.getElementById("wave");
+      if (!wave) return;
+      var N = 56;
+      for (var i = 0; i < N; i++) {
+        var t = i / (N - 1);
+        // smooth speech-like envelope: overlapping sines + light jitter
+        var env =
+          0.5 +
+          0.32 * Math.sin(t * Math.PI * 3.1) +
+          0.18 * Math.sin(t * Math.PI * 7.7 + 1.3) +
+          0.12 * Math.sin(t * Math.PI * 13.0 + 0.6);
+        env = Math.max(0.14, Math.min(1, Math.abs(env)));
+        var bar = document.createElement("span");
+        bar.style.setProperty("--h", (env * 100).toFixed(1) + "%");
+        bar.style.setProperty("--dur", (2 + Math.random() * 1.8).toFixed(2) + "s");
+        bar.style.setProperty("--delay", (-Math.random() * 3).toFixed(2) + "s");
+        wave.appendChild(bar);
+      }
+    })();
+
+    // subtle scroll reveal
+    (function () {
+      var els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

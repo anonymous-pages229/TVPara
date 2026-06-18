@@ -23,6 +23,12 @@
   --hl-emo-wash: rgba(201, 96, 16, 0.12);
   --hl-shift: #0b7fa3;
   --hl-shift-wash: rgba(18, 156, 198, 0.13);
+  --hl-pitch: #7b3fb0;
+  --hl-pitch-wash: rgba(123, 63, 176, 0.12);
+  --hl-volume: #2f8a52;
+  --hl-volume-wash: rgba(47, 138, 82, 0.14);
+  --hl-pace: #c02a6b;
+  --hl-pace-wash: rgba(192, 42, 107, 0.12);
 
   --r-sm: 8px;
   --r-md: 12px;
@@ -525,6 +531,18 @@ audio {
   color: var(--hl-shift);
   background: var(--hl-shift-wash);
 }
+.hl-pitch {
+  color: var(--hl-pitch);
+  background: var(--hl-pitch-wash);
+}
+.hl-volume {
+  color: var(--hl-volume);
+  background: var(--hl-volume-wash);
+}
+.hl-pace {
+  color: var(--hl-pace);
+  background: var(--hl-pace-wash);
+}
 .hl-vague {
   color: var(--muted);
   text-decoration: underline dotted var(--line-strong);
@@ -558,6 +576,15 @@ audio {
 }
 .hl-dot.shift {
   background: var(--hl-shift);
+}
+.hl-dot.pitch {
+  background: var(--hl-pitch);
+}
+.hl-dot.volume {
+  background: var(--hl-volume);
+}
+.hl-dot.pace {
+  background: var(--hl-pace);
 }
 .hl-dot.vague {
   height: 8px;

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DramaPara — A TV Drama Dataset for Paralinguistic Understanding</title>
-  <meta name="description" content="DramaPara: A TV Drama Dataset for Enhancing Paralinguistic Understanding in Large Audio-Language Models" />
+  <title>TVPara · Paralinguistic Captioning of TV-Series Speech</title>
+  <meta name="description" content="TVPara: Paralinguistic Captioning of Expressive TV-Series Speech in Complex Acoustic Environments" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
           <rect x="10.5" y="4" width="3" height="16" rx="1.5" />
           <rect x="18" y="10" width="3" height="4" rx="1.5" />
         </svg>
-        DRAMAPARA
+        TVPARA
       </a>
       <div class="nav-links">
         <a href="#abstract">Abstract</a>
@@ -37,12 +37,12 @@
   <!-- ===================== hero ===================== -->
   <header class="hero" id="top">
     <div class="container hero-wrap">
-      <span class="chip">SLT 2026 · Submission</span>
+      <span class="chip">ICASSP 2027 · Submission</span>
 
-      <h1>DramaPara</h1>
+      <h1>TVPara</h1>
       <p class="subtitle">
-        A TV Drama Dataset for Enhancing Paralinguistic Understanding
-        in Large Audio-Language Models
+        Paralinguistic Captioning of Expressive TV-Series Speech
+        in Complex Acoustic Environments
       </p>
 
       <div class="wave" id="wave" aria-hidden="true"></div>
@@ -86,21 +86,18 @@
           <h2>Abstract</h2>
         </div>
         <p class="abstract-body">
-          Large audio-language models (LALMs) struggle to parse paralinguistic information (e.g., emotion,
-          pace, pitch) in complex acoustic environments. We attribute this to a domain gap between idealized
-          clean speech and real-world complex acoustic environments: current corpora rely heavily on clean
-          speech or studio recordings, with limited acoustic and emotional diversity. To narrow this gap, we
-          introduce <strong>DramaPara</strong>, a TV drama dataset designed to enhance LALMs' paralinguistic
-          understanding. TV drama supplies both kinds of diversity: it pairs expressive human dialogue with
-          co-occurring background sound effects across diverse acoustic conditions. Constructed via LALM
-          pre-annotation and human calibration, DramaPara includes two tasks: isolated single-utterance
-          description (~492h) and sequential multi-utterance description (~213h) describing paralinguistic
-          change across adjacent utterances. Applying a two-stage training strategy (SFT followed by DPO) to
-          open-source LALMs yields an <span class="mark">average relative improvement of 31.62%</span> in
-          paralinguistic understanding under complex acoustic environments. The gains also generalize out of
-          distribution: multiple paralinguistic dimensions improve significantly both on unseen TV dramas and
-          on the cross-domain VoxCeleb corpus. This indicates that DramaPara's paralinguistic gains are not
-          specific to its training shows or source domain.
+          Large audio-language models (LALMs) struggle to parse paralinguistics (e.g., emotion, pace, pitch) in
+          speech that combines intense emotion with complex acoustic environments. Strengthening this ability
+          calls for training data that reflects such conditions. However, existing corpora rely heavily on
+          studio-recorded speech, offering limited emotional and acoustic diversity. To address this gap, we
+          introduce <strong>TVPara</strong>, a paralinguistic captioning dataset built from TV series. Speech in
+          TV series often carries diverse emotional expression and co-occurs with scene-specific background
+          sound, providing expressive emotion and complex acoustic environments at scale. Constructed via LALM
+          pre-annotation and human correction, TVPara includes two tasks: Single-Utterance (~492h) and
+          Multi-Utterance (~213h) Paralinguistic Captioning. Fine-tuning open-source LALMs on TVPara yields an
+          <span class="mark">average relative improvement of 31.62%</span> in paralinguistic understanding
+          under complex acoustic environments. The gains further generalize to an unseen TV series and to
+          cleaner, cross-domain speech.
         </p>
       </div>
     </section>
@@ -114,17 +111,35 @@
         </div>
 
         <article class="figure-card">
-          <div class="figure-cap"><span class="idx">Fig. 1</span> Task paradigms</div>
+          <div class="figure-cap"><span class="idx">Fig. 1</span> Task overview</div>
           <div class="figure-wrap">
-            <img src="figs/task_fig.png" class="pdf-figure figure-half" alt="Task paradigms overview" />
+            <img src="figs/task_fig.png" class="pdf-figure figure-half" alt="Overview of the two TVPara tasks" loading="lazy" />
           </div>
+          <p class="figure-desc">(a) Single-Utterance Paralinguistic Captioning describes the paralinguistic attributes of a single utterance, including emotion, pace, pitch, and volume. (b) Multi-Utterance Paralinguistic Captioning describes a sequence of adjacent utterances in order, with emphasis on how these attributes change over time (e.g., from irony to excitement).</p>
         </article>
 
         <article class="figure-card">
-          <div class="figure-cap"><span class="idx">Fig. 2</span> Annotation pipeline</div>
+          <div class="figure-cap"><span class="idx">Fig. 2</span> Emotion word clouds</div>
           <div class="figure-wrap">
-            <img src="figs/data_annotation.png" class="pdf-figure" alt="Data annotation pipeline" />
+            <img src="figs/wordcloud.png" class="pdf-figure" alt="Emotion word clouds of TVPara and VoxCeleb" loading="lazy" />
           </div>
+          <p class="figure-desc">Emotion word clouds of (a) TVPara and (b) VoxCeleb. VoxCeleb is dominated by neutral and calm states, whereas TVPara covers many expressive emotions (e.g., frustration, sarcasm, anger).</p>
+        </article>
+
+        <article class="figure-card">
+          <div class="figure-cap"><span class="idx">Fig. 3</span> Annotation pipeline</div>
+          <div class="figure-wrap">
+            <img src="figs/data_annotation.png" class="pdf-figure" alt="TVPara annotation pipeline" loading="lazy" />
+          </div>
+          <p class="figure-desc">(a) Single-Utterance Annotation: each clip is pre-annotated by an LALM from the audio and a prompt, the caption is polished by an LLM, and it is then corrected by human annotators, who remove hallucinated content (e.g., emotions that the audio does not support). The corrected data are used to fine-tune the pre-annotation model from M<sub>p</sub> to M<sub>f</sub>, which then pre-annotates the remaining audio. (b) Multi-Utterance Construction: a clip covering N adjacent utterances is cut from the source recording, and the corrected captions of the single-utterance clips within it are merged by an LLM into one caption in time order.</p>
+        </article>
+
+        <article class="figure-card">
+          <div class="figure-cap"><span class="idx">Fig. 4</span> Inference &amp; evaluation</div>
+          <div class="figure-wrap">
+            <img src="figs/infer_eval.png" class="pdf-figure" alt="Inference and LLM-as-a-Judge evaluation pipeline" loading="lazy" />
+          </div>
+          <p class="figure-desc">During inference, the audio and user prompt are processed by the LALM to generate a paralinguistic caption. For evaluation, an LLM extracts atomic attributes (emotion, pace, pitch, volume) from both the generated caption and the ground-truth label. An LLM evaluator then compares these aligned attributes, assigning similarity scores on a discrete scale from 0 to 4.</p>
         </article>
       </div>
     </section>
@@ -141,13 +156,11 @@
         <div class="audio-block">
           <div class="block-head">
             <span class="part">Part 01</span>
-            <h3>Dataset Comparison — Prior datasets vs. DramaPara</h3>
+            <h3>Dataset Comparison: Prior Corpora vs. TVPara</h3>
           </div>
           <p class="lead">
-            Prior datasets are typically recorded in very clean acoustic conditions, and their emotions often
-            carry noticeable acted characteristics. DramaPara contains far more realistic background sounds,
-            while vocal expressions are more complex, intense, and natural — better reflecting real-world
-            conversational scenarios.
+            Prior corpora are mostly recorded in clean acoustic conditions. In TVPara, expressive, intense
+            emotion co-occurs with background sound such as music, sound effects, and scene transitions.
           </p>
 
           <div class="audio-grid cols-three">
@@ -167,15 +180,15 @@
 
           <div class="audio-grid cols-three">
             <article class="audio-card">
-              <div class="card-head"><span class="card-id">DramaPara · 0398</span><span class="tag ours">Ours</span></div>
+              <div class="card-head"><span class="card-id">TVPara · 0398</span><span class="tag ours">Ours</span></div>
               <audio controls preload="none" src="samples/0398.wav"></audio>
             </article>
             <article class="audio-card">
-              <div class="card-head"><span class="card-id">DramaPara · 0479</span><span class="tag ours">Ours</span></div>
+              <div class="card-head"><span class="card-id">TVPara · 0479</span><span class="tag ours">Ours</span></div>
               <audio controls preload="none" src="samples/0479.wav"></audio>
             </article>
             <article class="audio-card">
-              <div class="card-head"><span class="card-id">DramaPara · 1081</span><span class="tag ours">Ours</span></div>
+              <div class="card-head"><span class="card-id">TVPara · 1081</span><span class="tag ours">Ours</span></div>
               <audio controls preload="none" src="samples/1081.wav"></audio>
             </article>
           </div>
@@ -187,8 +200,8 @@
             <span class="part">Part 02</span>
             <h3>Single-Utterance vs. Multi-Utterance</h3>
           </div>
-          <p class="lead">The same opening line, heard two ways — first in isolation, then inside its full three-sentence exchange.</p>
-          <p class="block-note">Read alone, the line is simply ironic. Inside the conversation, the caption tracks how the delivery <strong>moves</strong> across four dimensions — <span class="hl hl-emo">emotion</span>, <span class="hl hl-pitch">pitch</span>, <span class="hl hl-volume">volume</span>, and <span class="hl hl-pace">pace</span> — while <span class="hl hl-shift">shift words</span> mark where the tone turns from one sentence to the next.</p>
+          <p class="lead">The same opening line, heard two ways: first in isolation, then inside its full three-utterance exchange.</p>
+          <p class="block-note">Read alone, the line is simply ironic. Inside the conversation, the caption tracks how the delivery <strong>moves</strong> across four attributes (<span class="hl hl-emo">emotion</span>, <span class="hl hl-pace">pace</span>, <span class="hl hl-pitch">pitch</span>, and <span class="hl hl-volume">volume</span>), while <span class="hl hl-shift">shift words</span> mark where the tone turns from one utterance to the next.</p>
           <div class="hl-legend">
             <span class="hl-legend-item"><span class="hl-dot emo"></span>Emotion</span>
             <span class="hl-legend-item"><span class="hl-dot pitch"></span>Pitch</span>
@@ -206,7 +219,7 @@
                 <p class="kv-text">"No kidding? Am I asking for ransom?"</p>
               </div>
               <div class="kv">
-                <span class="kv-label">Description</span>
+                <span class="kv-label">Caption</span>
                 <p class="kv-text">The speaker maintains a <span class="hl hl-volume">moderate volume</span> and <span class="hl hl-pace">pace</span>, allowing the words to resonate, while <span class="hl hl-pitch">the tone ascends</span> towards the end of each sentence, adding a layer of <span class="hl hl-emo">irony</span> to the delivery.</p>
               </div>
             </article>
@@ -223,7 +236,7 @@
                 </p>
               </div>
               <div class="kv">
-                <span class="kv-label">Description</span>
+                <span class="kv-label">Caption</span>
                 <p class="kv-text">The speaker delivers with a <span class="hl hl-volume">moderate volume</span> and <span class="hl hl-pace">pace</span>, utilizing a <span class="hl hl-pitch">rising tone</span> for <span class="hl hl-emo">irony</span>. <span class="hl hl-shift">This shifts to</span> a <span class="hl hl-pitch">high pitch</span> and <span class="hl hl-pace">rapid tempo</span>, maintaining a <span class="hl hl-volume">moderate volume</span> while enhancing <span class="hl hl-emo">engagement</span>. <span class="hl hl-shift">Finally</span>, <span class="hl hl-emo">excitement</span> peaks with a <span class="hl hl-emo">cheerful</span>, <span class="hl hl-pitch">high-pitched voice</span> and a <span class="hl hl-pace">fast pace</span> at a <span class="hl hl-volume">high volume</span>, radiating <span class="hl hl-emo">enthusiasm</span>. The overall delivery effectively blends <span class="hl hl-emo">irony</span>, <span class="hl hl-emo">liveliness</span>, and <span class="hl hl-emo">excitement</span>.</p>
               </div>
             </article>
@@ -236,8 +249,8 @@
             <span class="part">Part 03</span>
             <h3>Before vs. After Fine-Tuning</h3>
           </div>
-          <p class="lead">The same description task, written by the base model and by the fine-tuned model, each read against the ground truth.</p>
-          <p class="block-note">The base model falls back on <span class="hl hl-vague">vague adjectives</span> or a fixed <span class="hl hl-vague">Neutral / None / Medium</span> template. After fine-tuning, the model pins down <span class="hl hl-emo">emotion</span>, <span class="hl hl-pitch">pitch</span>, <span class="hl hl-volume">volume</span>, and <span class="hl hl-pace">pace</span>, and narrates how the tone <span class="hl hl-shift">shifts</span> across sentences — landing much closer to the ground truth.</p>
+          <p class="lead">The same captioning task, answered by the zero-shot model and by the model fine-tuned on TVPara, each compared with the ground truth.</p>
+          <p class="block-note">The base model falls back on <span class="hl hl-vague">vague adjectives</span> or a fixed <span class="hl hl-vague">Neutral / None / Medium</span> template. After fine-tuning, the model pins down <span class="hl hl-emo">emotion</span>, <span class="hl hl-pitch">pitch</span>, <span class="hl hl-volume">volume</span>, and <span class="hl hl-pace">pace</span>, and narrates how the tone <span class="hl hl-shift">shifts</span> across sentences, landing much closer to the ground truth.</p>
           <div class="hl-legend">
             <span class="hl-legend-item"><span class="hl-dot emo"></span>Emotion</span>
             <span class="hl-legend-item"><span class="hl-dot pitch"></span>Pitch</span>
@@ -285,7 +298,7 @@
                 <p class="kv-text">The speaker delivers with a <span class="hl hl-volume">moderate volume</span> and <span class="hl hl-pace">pace</span>, utilizing a <span class="hl hl-pitch">rising tone</span> for <span class="hl hl-emo">irony</span>. <span class="hl hl-shift">This shifts to</span> a <span class="hl hl-pitch">high pitch</span> and <span class="hl hl-pace">rapid tempo</span>, maintaining a <span class="hl hl-volume">moderate volume</span> while enhancing <span class="hl hl-emo">engagement</span>. <span class="hl hl-shift">Finally</span>, <span class="hl hl-emo">excitement</span> peaks with a <span class="hl hl-emo">cheerful</span>, <span class="hl hl-pitch">high-pitched voice</span> and a <span class="hl hl-pace">fast pace</span> at a <span class="hl hl-volume">high volume</span>, radiating <span class="hl hl-emo">enthusiasm</span>.</p>
               </div>
               <div class="kv before">
-                <span class="kv-label">Before · Pretrained</span>
+                <span class="kv-label">Before · Zero-shot</span>
                 <p class="kv-text">1. 'No kidding, am I asking for ransom? You always said she was crazy. Anyway, I just thought you should know, take care.' <span class="hl hl-vague">Emotion: Neutral</span>; <span class="hl hl-vague">Stress: None</span>; <span class="hl hl-vague">Intonation: Neutral</span>; Speed: Medium. 2. 'Okay, enough kidding around.' <span class="hl hl-vague">Emotion: Neutral</span>; <span class="hl hl-vague">Stress: None</span>; <span class="hl hl-vague">Intonation: Neutral</span>; Speed: Medium.</p>
               </div>
               <div class="kv after">
@@ -306,8 +319,7 @@
           <h2>Data Sources</h2>
         </div>
         <p class="lead">
-          Selection criterion: from popular American TV series, we prioritized shows with relatively richer
-          scene diversity and more expressive character portrayals.
+          TVPara is built from 19 English-language TV series covering sitcoms, dramas, crime series, animation, and documentaries. Among popular series, we prioritized shows with richer scene diversity and more expressive character portrayals. The audio is clipped from the shows' official YouTube channels; only the paralinguistic annotations, source video links, and clip timestamps will be released.
         </p>
         <div class="sources">
           <span class="source"><span class="dot">▹</span>Poirot</span>
@@ -337,7 +349,7 @@
   <!-- ===================== footer ===================== -->
   <footer class="footer">
     <div class="container">
-      <p>© DramaPara Project · SLT 2026</p>
+      <p>© TVPara Project · ICASSP 2027</p>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>

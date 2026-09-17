@@ -723,3 +723,10 @@ audio {
     transform: none;
   }
 }
+
+.figure-desc {
+  margin: 14px 6px 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}

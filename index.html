@@ -64,7 +64,7 @@
           <div class="spec-label">Multi-utterance</div>
         </div>
         <div class="spec">
-          <div class="spec-val"><span class="accent">+</span>31.62%</div>
+          <div class="spec-val"><span class="accent">+</span>31.26%</div>
           <div class="spec-label">Avg. relative gain</div>
         </div>
         <div class="spec">
@@ -93,7 +93,7 @@
           sound, providing expressive emotion and complex acoustic environments at scale. Constructed via LALM
           pre-annotation and human correction, TVPara includes two tasks: Single-Utterance (~492h) and
           Multi-Utterance (~213h) Paralinguistic Captioning. Fine-tuning open-source LALMs on TVPara yields an
-          <span class="mark">average relative improvement of 31.62%</span> in paralinguistic understanding
+          <span class="mark">average relative improvement of 31.26%</span> in paralinguistic understanding
           under complex acoustic environments. The gains further generalize to an unseen TV series and to
           cleaner, cross-domain speech.
         </p>
@@ -129,7 +129,7 @@
           <div class="figure-wrap">
             <img src="figs/data_annotation.png" class="pdf-figure" alt="TVPara annotation pipeline" loading="lazy" />
           </div>
-          <p class="figure-desc">(a) Single-Utterance Annotation: each clip is pre-annotated by an LALM from the audio and a prompt, the caption is polished by an LLM, and it is then corrected by human annotators, who remove hallucinated content (e.g., emotions that the audio does not support). The corrected data are used to fine-tune the pre-annotation model from M<sub>p</sub> to M<sub>f</sub>, which then pre-annotates the remaining audio. (b) Multi-Utterance Construction: a clip covering N adjacent utterances is cut from the source recording, and the corrected captions of the single-utterance clips within it are merged by an LLM into one caption in time order.</p>
+          <p class="figure-desc">(a) Single-Utterance Annotation: each clip is pre-annotated by an LALM from the audio and a prompt, the caption is polished by an LLM, and it is then corrected by human annotators, who remove hallucinated content (e.g., emotions that the audio does not support) and add omitted content. The corrected data are used to fine-tune the pre-annotation model from M<sub>p</sub> to M<sub>f</sub>, which then pre-annotates the remaining audio. (b) Multi-Utterance Construction: a clip covering N adjacent utterances is cut from the source recording, and the corrected captions of the single-utterance clips within it are merged by an LLM into one caption in time order.</p>
         </article>
 
         <article class="figure-card">
